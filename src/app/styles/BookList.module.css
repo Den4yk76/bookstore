@@ -1,0 +1,145 @@
+.books {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.booksSet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.booksSet__item {
+  position: relative;
+  box-sizing: border-box;
+
+  border: 1px solid #eeeeee;
+  border-top: none;
+
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.booksSet__item:hover,
+.booksSet__item:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.book {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.book:hover,
+.book:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.book:hover .book__description,
+.book:focus .book__description {
+  transform: translateY(-100%);
+}
+
+.book__overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.Image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.book__description {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 157, 0, 0.8);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 156%;
+  letter-spacing: 0.03em;
+  color: black;
+
+  padding: 25px;
+}
+
+@media screen and (max-width: 479px) {
+  .book__description {
+    padding: 20px 14px;
+  }
+}
+
+.bookBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 24px;
+}
+
+.bookBottomMenu {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deleteButton {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 100;
+  width: 65px;
+  background-color: rgba(255, 157, 0, 0.3);
+  border: none;
+  border-radius: 8px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.deleteButton:hover,
+.deleteButton:focus {
+  background-color: rgba(255, 0, 0, 0.85);
+  transition-property: background-color;
+  transition-duration: 250ms;
+}
+
+.book__head {
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+  color: black;
+}
+
+.book__category {
+  font-size: 16px;
+  line-height: 1.875;
+  letter-spacing: 0.03em;
+  color: rgb(255, 157, 0);
+}
