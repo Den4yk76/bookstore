@@ -1,18 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Book } from "@/app/types/Book";
 
 
 type InitialState = {
   books: Array<Book>,
   openedBook: Partial<Book>,
-}
-
-interface Book {
-  id: String,
-  name: String,
-  price: String,
-  category: String,
-  description: String,
-  picture: String
 }
 
 const initialState: InitialState = {

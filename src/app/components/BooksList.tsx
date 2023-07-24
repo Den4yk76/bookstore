@@ -67,7 +67,7 @@ const mockBooks = [
   },
 ];
 
-const BookList = ({ detailsModalOpen, setDetailsModalOpen }: BookListProps) => {
+const BookList = ({ setDetailsModalOpen }: BookListProps) => {
   const dispatch = useDispatch();
   const books = useAppSelector((state) => state.books);
 
@@ -75,11 +75,11 @@ const BookList = ({ detailsModalOpen, setDetailsModalOpen }: BookListProps) => {
     dispatch(fetchBooks(mockBooks));
   }, [dispatch]);
 
-  const handleDelete = (id: String) => {
+  const handleDelete = (id: string) => {
     dispatch(deleteBook(id));
   };
 
-  const bookClickHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  const bookClickHandler = (e: React.SyntheticEvent) => {
     setDetailsModalOpen(true);
     dispatch(setOpenedBook(e.currentTarget.id));
   };
@@ -89,15 +89,11 @@ const BookList = ({ detailsModalOpen, setDetailsModalOpen }: BookListProps) => {
       <ul className={s.booksSet}>
         {books.map((book) => (
           <li key={book.id as React.Key} className={s.booksSet__item}>
-            <a
-              id={book.id as string}
-              className={s.book}
-              onClick={bookClickHandler as ReactEventHandler}
-            >
+            <a id={book.id} className={s.book} onClick={bookClickHandler}>
               <div className={s.book__overlay}>
                 <Image
                   className={s.Image}
-                  src={book.picture as string}
+                  src={book.picture}
                   alt="Book picture"
                   width={450}
                   height={400}
@@ -118,7 +114,7 @@ const BookList = ({ detailsModalOpen, setDetailsModalOpen }: BookListProps) => {
             </a>
             <button
               className={s.deleteButton}
-              id={book.id as string}
+              id={book.id}
               onClick={() => {
                 handleDelete(book.id);
               }}
